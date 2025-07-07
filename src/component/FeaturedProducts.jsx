@@ -1,8 +1,6 @@
 import React from 'react';
-import strawbarry from '../../public/assets/strwabarry.jpg';
-import cauliflower from '../../public/assets/culiflower.jpg';
-import lemon from '../../public/assets/lemon.jpg';
 import { Link } from "react-router-dom";
+
 const products = [
   {
     name: 'Fresh Strawberry',
@@ -10,7 +8,7 @@ const products = [
     price: 8,
     oldPrice: 10,
     rating: 4.8,
-    image: strawbarry,
+    image: '/assets/strwabarry.jpg',
   },
   {
     name: 'Fresh Cauliflower',
@@ -18,7 +16,7 @@ const products = [
     price: 12,
     oldPrice: 15,
     rating: 4.9,
-    image: cauliflower,
+    image: '/assets/culiflower.jpg',
   },
   {
     name: 'Fresh Yellow Lemon',
@@ -26,7 +24,7 @@ const products = [
     price: 12,
     oldPrice: 15,
     rating: 4.8,
-    image: lemon,
+    image: '/assets/lemon.jpg',
   },
 ];
 
@@ -35,7 +33,9 @@ const FeaturedProducts = () => {
     <section className="px-6 py-10 bg-lime-50">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold text-green-900">Featured Products</h2>
-        <button className="bg-green-600 text-white px-4 py-2 rounded text-sm"><Link to="/ShopPage">View All Products</Link></button>
+        <button className="bg-green-600 text-white px-4 py-2 rounded text-sm">
+          <Link to="/ShopPage">View All Products</Link>
+        </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {products.map((item, index) => (

@@ -1,12 +1,10 @@
 import React from 'react';
-import banner from '../../public/assets/bannerimage.png';
-import bgImage from '../../public/assets/banner1.png'; // your background image
 
 const HeroBanner = () => {
   return (
     <section
       className="bg-cover bg-center bg-no-repeat px-10 py-12 rounded-xl shadow-lg m-6 flex flex-col md:flex-row items-center justify-between"
-      style={{ backgroundImage: `url(${bgImage})` }}
+      style={{ backgroundImage: `url('/assets/banner1.png')` }} 
     >
       <div className="max-w-xl mb-6 md:mb-0 bg-white/80 p-6 rounded-xl backdrop-blur-sm">
         <p className="text-sm text-gray-500 uppercase">The Best Online Grocery Store</p>
@@ -27,7 +25,7 @@ const HeroBanner = () => {
       </div>
       <div className="w-full md:w-1/2">
         <img
-          src={banner}
+          src="/assets/bannerimage.png" 
           alt="Grocery Banner"
           className="w-[600px] h-[300px] object-contain ml-auto"
         />

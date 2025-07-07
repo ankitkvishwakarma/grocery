@@ -1,13 +1,11 @@
 import React from "react";
-import bannerImage from '../../public/assets/banner-img-1.png';
-import RightImage from "../../public/assets/banner-img-2-1.png"; // Update with your actual image path
+
 const banners = [
   {
     id: 1,
     title: "Fresh vegetable & Fruit basket",
     subtitle: "Super Product for you",
-    image:
-      RightImage,
+    image: "/assets/banner-img-2-1.png", 
     bgColor: "bg-orange-100",
     textColor: "text-orange-900",
   },
@@ -15,8 +13,7 @@ const banners = [
     id: 2,
     title: "Best Cuisine From the sea of America",
     subtitle: "Premium seafood available everyday!",
-    image:
-      bannerImage,
+    image: "/assets/banner-img-1.png", 
     bgColor: "bg-gray-800",
     textColor: "text-white",
   },

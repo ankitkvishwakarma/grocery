@@ -1,18 +1,10 @@
-// src/components/PopularProducts.jsx
 import React from "react";
 import { FaHeart, FaPlus, FaMinus, FaShoppingBag } from "react-icons/fa";
-import organicFood from "../../public/assets/picture1.png"; // Assuming you have an image for the first product
-import fruitscollection from "../../public/assets/fruitscollection.jpeg"
-import fruits from "../../public/assets/fruits.jpg"; // Assuming you have an image for the fruits collection
-import drinks from "../../public/assets/drink1.jpeg"; // Assuming you have an image for the drinks collection
-import drink from "../../public/assets/drink2.jpeg"; // Assuming you have an image for the drinks collection
-import nuts from "../../public/assets/nuts.jpeg";
-import culiflower from "../../public/assets/culiflower.jpeg"; // Assuming you have an image for the cauliflower
-import orange from "../../public/assets/orange.jpeg"; // Assuming you have an image for the orange
+
 const products = [
     {
         id: 1,
-        image: organicFood,
+        image: "/assets/picture1.png",
         category: "Vegetables",
         name: "Farm fresh organic fruits 250g",
         price: 7.99,
@@ -20,14 +12,14 @@ const products = [
     },
     {
         id: 2,
-        image:orange ,
+        image: "/assets/orange.jpeg",
         category: "Fruits",
         name: "Farm fresh organic orange 1kg",
         price: 11.0,
     },
     {
         id: 3,
-        image:culiflower,
+        image: "/assets/culiflower.jpeg",
         category: "vegetables",
         name: "Farm fresh organic culiflower 500g",
         price: 11.0,
@@ -35,7 +27,7 @@ const products = [
     },
     {
         id: 4,
-        image:  fruitscollection,
+        image: "/assets/fruitscollection.jpeg",
         category: "Fruits",
         name: "Full Fresh organic orange 500g",
         price: 11.0,
@@ -43,7 +35,7 @@ const products = [
     },
     {
         id: 5,
-        image:fruits,
+        image: "/assets/fruits.jpg",
         category: "Fruits",
         name: "Farm fresh organic fruits 250g",
         price: 7.99,
@@ -51,21 +43,21 @@ const products = [
     },
     {
         id: 6,
-        image: drinks,
+        image: "/assets/drink1.jpeg",
         category: "Drinks",
         name: "Farm fresh organic tea 100g",
         price: 11.0,
     },
     {
         id: 7,
-        image: nuts,
+        image: "/assets/nuts.jpeg",
         category: "Nuts",
         name: "Farm fresh organic bone 500g",
         price: 11.0,
     },
     {
         id: 8,
-        image: drink,
+        image: "/assets/drink2.jpeg",
         category: "Drinks",
         name: "Full Fresh organic juice 500ml",
         price: 11.0,

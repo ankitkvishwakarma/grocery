@@ -3,7 +3,6 @@ import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
-import logo from '../../public/assets/banner-img-2-1.png';
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <img src={logo} alt="logo" className="w-8 h-8" />
+          <img src="/assets/banner-img-2-1.png" alt="logo" className="w-8 h-8" />
           <span className="text-xl font-bold">Grocery.</span>
         </motion.div>
 
@@ -40,7 +39,6 @@ const Navbar = () => {
           <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-200" />
         </motion.div>
 
-        {/* Icons - Desktop */}
         {/* Icons - Desktop */}
         <motion.div
           className="hidden md:flex items-center gap-4 text-lg"
@@ -63,7 +61,6 @@ const Navbar = () => {
             </motion.div>
           </Link>
         </motion.div>
-
 
         {/* Hamburger - Mobile */}
         <motion.button

@@ -1,6 +1,6 @@
 import React from 'react';
-import banner from '../assets/bannerimage.png';
-import bgImage from '../assets/banner1.png'; // your background image
+import banner from '../../public/assets/bannerimage.png';
+import bgImage from '../../public/assets/banner1.png'; // your background image
 
 const HeroBanner = () => {
   return (

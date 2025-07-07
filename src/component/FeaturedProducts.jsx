@@ -1,7 +1,7 @@
 import React from 'react';
-import strawbarry from '../assets/strwabarry.jpg';
-import cauliflower from '../assets/culiflower.jpg';
-import lemon from '../assets/lemon.jpg';
+import strawbarry from '../../public/assets/strwabarry.jpg';
+import cauliflower from '../../public/assets/culiflower.jpg';
+import lemon from '../../public/assets/lemon.jpg';
 import { Link } from "react-router-dom";
 const products = [
   {

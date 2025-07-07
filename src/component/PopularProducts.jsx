@@ -1,14 +1,14 @@
 // src/components/PopularProducts.jsx
 import React from "react";
 import { FaHeart, FaPlus, FaMinus, FaShoppingBag } from "react-icons/fa";
-import organicFood from "../assets/picture1.png"; // Assuming you have an image for the first product
-import fruitscollection from "../assets/fruitscollection.jpeg"
-import fruits from "../assets/fruits.jpg"; // Assuming you have an image for the fruits collection
-import drinks from "../assets/drink1.jpeg"; // Assuming you have an image for the drinks collection
-import drink from "../assets/drink2.jpeg"; // Assuming you have an image for the drinks collection
-import nuts from "../assets/nuts.jpeg";
-import culiflower from "../assets/culiflower.jpeg"; // Assuming you have an image for the cauliflower
-import orange from "../assets/orange.jpeg"; // Assuming you have an image for the orange
+import organicFood from "../../public/assets/picture1.png"; // Assuming you have an image for the first product
+import fruitscollection from "../../public/assets/fruitscollection.jpeg"
+import fruits from "../../public/assets/fruits.jpg"; // Assuming you have an image for the fruits collection
+import drinks from "../../public/assets/drink1.jpeg"; // Assuming you have an image for the drinks collection
+import drink from "../../public/assets/drink2.jpeg"; // Assuming you have an image for the drinks collection
+import nuts from "../../public/assets/nuts.jpeg";
+import culiflower from "../../public/assets/culiflower.jpeg"; // Assuming you have an image for the cauliflower
+import orange from "../../public/assets/orange.jpeg"; // Assuming you have an image for the orange
 const products = [
     {
         id: 1,

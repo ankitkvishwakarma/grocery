@@ -1,6 +1,6 @@
 import React from "react";
-import bannerImage from "../assets/banner-img-1.png"; // Update with your actual image path
-import RightImage from "../assets/banner-img-2-1.png"; // Update with your actual image path
+import bannerImage from '../../public/assets/banner-img-1.png';
+import RightImage from "../../public/assets/banner-img-2-1.png"; // Update with your actual image path
 const banners = [
   {
     id: 1,

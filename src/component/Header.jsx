@@ -3,7 +3,7 @@ import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
-import logo from "../assets/banner-img-2-1.png";
+import logo from '../../public/assets/banner-img-2-1.png';
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {

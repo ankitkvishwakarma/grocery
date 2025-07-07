@@ -1,11 +1,11 @@
 import React from 'react';
 
-import veg from '../assets/collection vegitable.jpg';
-import fruits from '../assets/fruit.png';
-import milk from '../assets/EggMilk.png';
-import bakery from '../assets/bekry.png';
-import house from '../assets/household.png';
-import dryfruits from '../assets/Dryfruits.png';
+import veg from '../../public/assets/collection vegitable.jpg';
+import fruits from '../../public/assets/fruit.png';
+import milk from '../../public/assets/EggMilk.png';
+import bakery from '../../public/assets/bekry.png';
+import house from '../../public/assets/household.png';
+import dryfruits from '../../public/assets/Dryfruits.png';
 
 const categories = [
   { title: 'Vegetables', products: 52, image: veg },

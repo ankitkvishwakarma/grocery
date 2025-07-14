@@ -18,7 +18,11 @@ import ShopPage from './component/ShopPage';
 import Signup from './component/Account/Signup';
 import CartPage from './component/CartPage';
 import Checkout from './component/cart/Checkout';
-
+import Livesale from "./component/HeroSection";
+import FaqAccordion from "./component/FaqAccordion";
+import Wishlist from "./component/Wishlist";
+import PageNotfound from "./component/PageNotfound";
+import ProductGrid from "./component/ProductGrid";
 
 
 function App() {
@@ -36,27 +40,35 @@ function App() {
         <Route path="/" element={<>
           <HeroBanner />
           <Categories />
+          <Livesale />
           <FeaturedProducts />
           <BannerSection />
           <PopularProducts />
           <StateSection />
           <Newslatter />
+          {/* <ProductGrid/> */}
+         
+
 
         </>
         } />
         <Route path="/shop" element={<ShopPage />} />
-        <Route path='/userlogin' element={<Login/>}/>
-        <Route path='/SignUp' element={<Signup/>}/>
-        <Route path='/ShopPage' element={<ShopPage/>}/>
-        <Route path='/ForgetPassword' element={<ForgetPassword/>}/>
-        <Route path='/Cart' element={<CartPage/>}/>
-        <Route path='/Checkout' element={<Checkout/>}/>
+        <Route path='/userlogin' element={<Login />} />
+        <Route path='/SignUp' element={<Signup />} />
+        <Route path='/ProductGrid' element={<ProductGrid />} />
+        <Route path='/ForgetPassword' element={<ForgetPassword />} />
+        <Route path='/Cart' element={<CartPage />} />
+        <Route path='/Checkout' element={<Checkout />} />
+        <Route path='/Blogs' element={<FaqAccordion />} />
+        <Route path='/Wishlist' element={<Wishlist />} />
+        <Route path="*" element={<PageNotfound />} />
+        <Route path="/"/>
 
-        
+
       </Routes>
 
       <Footer />
-      </>
+    </>
 
   );
 }

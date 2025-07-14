@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer
-      className="bg-green-900 text-white px-6 py-10 bg-[url('')] bg-cover bg-center bg-no-repeat"
+      className="bg-green-900 text-white px-4 sm:px-6 py-10 bg-[url('/assets/why-choose-one-shape-2.png')] bg-no-repeat bg-center "
     >
       <div className="bg-black/60 p-6 rounded-md">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">

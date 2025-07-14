@@ -45,9 +45,11 @@ const Navbar = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
         >
+         <Link to="/wishlist">
           <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
             <FaHeart />
           </motion.div>
+          </Link>
 
           <Link to="/cart">
             <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
@@ -83,15 +85,24 @@ const Navbar = () => {
           <GiHamburgerMenu />
           Browse All Categories
         </button>
-        {["Home", "Shop", "Fruits", "Vegetable", "Beverages", "About Us", "Blogs"].map((label, i) => (
+        {[
+          { label: "Home", path: "/" },
+          { label: "Shop", path: "/ProductGrid" },
+          { label: "Fruits", path: "/fruits" },
+          { label: "Vegetable", path: "/vegetables" },
+          { label: "Beverages", path: "/beverages" },
+          { label: "About Us", path: "/about" },
+          { label: "Blogs", path: "/blogs" },
+        ].map((item, i) => (
           <Link
             key={i}
-            to={label === "Home" ? "/" : "#"}
+            to={item.path}
             className="hover:text-yellow-400 transition"
           >
-            {label}
+            {item.label}
           </Link>
         ))}
+
         <select className="ml-auto text-yellow-400 bg-transparent">
           <option>Recently Viewed</option>
         </select>

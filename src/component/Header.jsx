@@ -4,9 +4,14 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
+import { cartCount } from "../redux/Selector";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart); // gets full cart object
+  const count = cartCount(cartItems); // uses the selector safely
+
 
   return (
     <header className="bg-green-700 text-white shadow-md">
@@ -45,15 +50,18 @@ const Navbar = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
         >
-         <Link to="/wishlist">
-          <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
-            <FaHeart />
-          </motion.div>
+          <Link to="/wishlist">
+            <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
+              <FaHeart />
+            </motion.div>
           </Link>
 
           <Link to="/cart">
-            <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
-              <FaShoppingCart />
+            <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer relative">
+              <FaShoppingCart size={24} />
+              <span className="absolute -top-2 -right-2 text-xs bg-red-500 text-white px-1 rounded-full">
+                {count}
+              </span>
             </motion.div>
           </Link>
 

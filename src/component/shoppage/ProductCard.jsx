@@ -1,18 +1,25 @@
+// src/component/shoppage/ProductCard.jsx
 import React from "react";
-import { FaHeart, FaShoppingCart, FaEye } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart, } from "../../redux/cartSlice";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
-    <div className="border p-4 rounded-lg shadow-sm hover:shadow-md transition">
-      <img src={product.image} alt={product.name} className="h-32 mx-auto" />
-      <h4 className="text-center mt-2 text-sm font-semibold">{product.name}</h4>
-      <p className="text-center text-green-600 font-bold">${product.price}</p>
-      <p className="text-center line-through text-gray-400 text-sm">{product.oldPrice}</p>
-      <div className="flex justify-center gap-2 mt-2 text-gray-600">
-        <FaHeart className="hover:text-red-500 cursor-pointer" />
-        <FaShoppingCart className="hover:text-green-600 cursor-pointer" />
-        <FaEye className="hover:text-blue-500 cursor-pointer" />
-      </div>
+    <div className="p-4 shadow-md rounded-md border">
+      <h2 className="text-lg font-bold">{product.name}</h2>
+      <p>₹{product.price}</p>
+      <button
+        className="mt-2 px-4 py-2 bg-green-600 text-white rounded"
+        onClick={handleAddToCart}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };

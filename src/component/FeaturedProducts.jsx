@@ -51,9 +51,9 @@ const FeaturedProducts = () => {
             <h3 className="font-semibold text-green-800">{item.name}</h3>
             <p className="text-sm text-gray-500 mb-2">{item.type}</p>
             <div className="flex justify-between items-center mb-2">
-              <span className="text-green-600 font-bold">${item.price.toFixed(2)}</span>
+              <span className="text-green-600 font-bold">₹{item.price.toFixed(2)}</span>
               <span className="line-through text-gray-400 text-sm">
-                ${item.oldPrice.toFixed(2)}
+                ₹{item.oldPrice.toFixed(2)}
               </span>
             </div>
             <div className="text-yellow-500 text-sm">★ {item.rating}</div>

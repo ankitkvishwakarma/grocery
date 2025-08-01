@@ -20,24 +20,24 @@ const OrderSummary = ({ subtotal, discount, total }) => {
         </div>
         <div className="flex justify-between">
           <span>Sub Total</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <span>₹{subtotal.toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
           <span>Shipping</span>
-          <span>$0.00</span>
+          <span>₹0.00</span>
         </div>
         <div className="flex justify-between">
           <span>Taxes</span>
-          <span>$0.00</span>
+          <span>₹0.00</span>
         </div>
         <div className="flex justify-between text-green-600">
           <span>Coupon Discount</span>
-          <span>- ${discount}</span>
+          <span>- ₹{discount}</span>
         </div>
         <hr />
         <div className="flex justify-between font-bold">
           <span>Total</span>
-          <span>${total.toFixed(2)}</span>
+          <span>₹{total.toFixed(2)}</span>
         </div>
       </div>
 

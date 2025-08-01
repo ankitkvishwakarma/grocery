@@ -23,6 +23,8 @@ import FaqAccordion from "./component/FaqAccordion";
 import Wishlist from "./component/Wishlist";
 import PageNotfound from "./component/PageNotfound";
 import ProductGrid from "./component/ProductGrid";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
   return (
     <>
       <Header />
+      <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path="/" element={<>
           <HeroBanner />
@@ -47,7 +50,7 @@ function App() {
           <StateSection />
           <Newslatter />
           {/* <ProductGrid/> */}
-         
+
 
 
         </>
@@ -62,7 +65,7 @@ function App() {
         <Route path='/Blogs' element={<FaqAccordion />} />
         <Route path='/Wishlist' element={<Wishlist />} />
         <Route path="*" element={<PageNotfound />} />
-        <Route path="/"/>
+        <Route path="/" />
 
 
       </Routes>

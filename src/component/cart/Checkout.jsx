@@ -11,8 +11,8 @@ const Checkout = () => {
     save: true,
   });
 
-  const subtotal = 85.4;
-  const discount = 10;
+  const subtotal = 0;
+  const discount = 0;
   const total = subtotal - discount;
 
   const handleInputChange = (e) => {

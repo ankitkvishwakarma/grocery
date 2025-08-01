@@ -1,8 +1,40 @@
 import React from "react";
+import { useState } from "react";
 import { FaGoogle, FaGithub, FaPinterestP } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 const Signup = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:5000/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        toast.success("Signup successful!");
+      } else {
+        toast.error(data.error || "Signup failed");
+      }
+    } catch (err) {
+      toast.error("Something went wrong");
+    }
+  };
+
   return (
     <motion.div
       className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-[#d1f0b2] font-sans"
@@ -27,8 +59,10 @@ const Signup = () => {
             SignUp
           </motion.h1>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
+
             <motion.input
+              onChange={handleChange}
               type="text"
               placeholder="Enter Name"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
@@ -38,6 +72,7 @@ const Signup = () => {
               transition={{ delay: 0.3 }}
             />
             <motion.input
+              onChange={handleChange}
               type="email"
               placeholder="Email address"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
@@ -47,6 +82,7 @@ const Signup = () => {
               transition={{ delay: 0.4 }}
             />
             <motion.input
+              onChange={handleChange}
               type="password"
               placeholder="Password"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"

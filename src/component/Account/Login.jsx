@@ -1,9 +1,40 @@
 import React from "react";
+import { useState } from "react";
 import { FaGoogle, FaGithub, FaPinterestP } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        toast.success("Login successful!");
+        localStorage.setItem("token", data.token); // store JWT
+      } else {
+        toast.error(data.error || "Login failed");
+      }
+    } catch (err) {
+      toast.error("Something went wrong");
+    }
+  };
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-[#d1f0b2] font-sans overflow-hidden">
       {/* Right Login Form */}
@@ -32,8 +63,9 @@ const Login = () => {
             Welcome back! Please login to your account.
           </motion.p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <motion.input
+              onChange={handleChange}
               type="email"
               placeholder="Email address"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
@@ -43,6 +75,7 @@ const Login = () => {
               transition={{ delay: 0.4 }}
             />
             <motion.input
+              onChange={handleChange}
               type="password"
               placeholder="Password"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
@@ -57,7 +90,7 @@ const Login = () => {
                 <input type="checkbox" />
                 <span>Remember me</span>
               </label>
-              <Link to="/ForgetPassword"className="text-green-600 hover:underline">
+              <Link to="/ForgetPassword" className="text-green-600 hover:underline">
                 Forgot Password?
               </Link>
             </div>

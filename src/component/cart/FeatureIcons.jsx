@@ -5,7 +5,7 @@ const FeatureIcons = () => (
     <div>
       <p className="text-2xl">🚚</p>
       <p className="font-bold">Free Shipping</p>
-      <p className="text-gray-500 text-xs">Free shipping for orders above $50</p>
+      <p className="text-gray-500 text-xs">Free shipping for orders above ₹50</p>
     </div>
     <div>
       <p className="text-2xl">💳</p>

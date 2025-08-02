@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaGoogle, FaGithub, FaPinterestP } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
@@ -11,23 +10,30 @@ const Login = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/login", {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await res.json();
+
       if (res.ok) {
         toast.success("Login successful!");
-        localStorage.setItem("token", data.token); // store JWT
+        localStorage.setItem("token", data.token);
+        navigate("/home"); // ✅ Redirect after login
       } else {
         toast.error(data.error || "Login failed");
       }
@@ -35,9 +41,9 @@ const Login = () => {
       toast.error("Something went wrong");
     }
   };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-[#d1f0b2] font-sans overflow-hidden">
-      {/* Right Login Form */}
       <motion.div
         className="w-full md:w-1/2 flex justify-center items-center bg-white rounded-lg shadow-lg py-10 px-6 md:px-12"
         initial={{ x: 200, opacity: 0 }}
@@ -65,19 +71,24 @@ const Login = () => {
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <motion.input
+              name="email"
               onChange={handleChange}
               type="email"
               placeholder="Email address"
+              value={formData.email}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
               required
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             />
+
             <motion.input
+              name="password"
               onChange={handleChange}
               type="password"
               placeholder="Password"
+              value={formData.password}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
               required
               initial={{ opacity: 0, y: 20 }}
@@ -115,7 +126,6 @@ const Login = () => {
             or login with
           </motion.div>
 
-          {/* Social Login Buttons */}
           <motion.div
             className="flex justify-center gap-4"
             initial="hidden"
@@ -144,7 +154,6 @@ const Login = () => {
             ))}
           </motion.div>
 
-          {/* Footer Link */}
           <motion.p
             className="text-sm text-center mt-6 text-gray-500"
             initial={{ opacity: 0 }}

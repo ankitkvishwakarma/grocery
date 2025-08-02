@@ -4,6 +4,7 @@ import { FaGoogle, FaGithub, FaPinterestP } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
 const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,21 +19,30 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/signup", {
+      const res = await fetch("http://localhost:5000/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+        
       });
+      
 
       const data = await res.json();
-      if (res.ok) {
-        toast.success("Signup successful!");
-      } else {
+
+      if (!res.ok) {
         toast.error(data.error || "Signup failed");
+        return;
       }
+
+      toast.success("Signup successful!");
+      // Optional: redirect to login or store token
     } catch (err) {
-      toast.error("Something went wrong");
+      console.error("Signup error:", err);
+      toast.error("Server error. Please try again.");
     }
+    //  catch (err) {
+    //       toast.error("Something went wrong");
+    //     }
   };
 
   return (
